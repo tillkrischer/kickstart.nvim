@@ -181,6 +181,30 @@ require('lazy').setup({
 
   { 'tpope/vim-vinegar' },
 
+  {
+    "glepnir/lspsaga.nvim",
+    opt = true,
+    branch = "main",
+    event = "LspAttach",
+    config = function()
+      require("lspsaga").setup({
+        lightbulb =
+        {
+          enable = true,
+          enable_in_insert = true,
+          sign = true,
+          sign_priority = 40,
+          virtual_text = false,
+        }
+      })
+    end,
+    requires = {
+      { "nvim-tree/nvim-web-devicons" },
+      --Please make sure you install markdown and markdown_inline parser
+      { "nvim-treesitter/nvim-treesitter" }
+    }
+  },
+
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
@@ -407,7 +431,8 @@ local on_attach = function(_, bufnr)
   end
 
   nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-  nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
+  -- nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
+  nmap('<leader>ca', '<cmd>Lspsaga code_action<CR>', '[C]ode [A]ction')
 
   nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
   nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
@@ -460,7 +485,7 @@ null_ls.setup({
   sources = {
     null_ls.builtins.diagnostics.eslint,
     null_ls.builtins.completion.spell,
-    null_ls.builtins.code_actions.gitsigns,
+    -- null_ls.builtins.code_actions.gitsigns,
     null_ls.builtins.formatting.prettier,
     null_ls.builtins.code_actions.eslint,
   },
