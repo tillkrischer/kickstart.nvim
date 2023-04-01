@@ -284,7 +284,7 @@ vim.keymap.set("n", "N", "Nzzzv")
 
 vim.keymap.set("x", "p", [["_dP]])
 
-vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
+vim.keymap.set("n", "<leader>l", vim.lsp.buf.format)
 
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
