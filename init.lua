@@ -290,6 +290,8 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 vim.keymap.set("v", ">", ">gv")
 vim.keymap.set("v", "<", "<gv")
 
+vim.keymap.set("i", "jj", "<Esc>")
+
 vim.cmd "command! WQ wq"
 vim.cmd "command! Wq wq"
 vim.cmd "command! W w"
