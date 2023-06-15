@@ -295,6 +295,8 @@ vim.cmd "command! Wq wq"
 vim.cmd "command! W w"
 vim.cmd "command! Q q"
 
+vim.cmd "language en_US"
+
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
